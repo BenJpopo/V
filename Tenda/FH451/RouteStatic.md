@@ -6,7 +6,8 @@ FH451  V1.0.0.9
 ## Vulnerability details
 
 Tenda FH451 V1.0.0.9 has a stack overflow vulnerability located in the RouteStatic function.Without checking the length of the parameter var, it was assigned to stackspace v4
-![[2024-08-30 154737.png]]
+![Vulnerability Function2](154737.png)
+
 ## POC
 
 ```python
@@ -24,4 +25,4 @@ data = {
 
 res = re.post(url, data=data)
 ```
-![[2024-08-30 160328.png]]
+![Vulnerability Function2](160328.png)

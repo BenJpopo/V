@@ -6,7 +6,9 @@ CH22 V1.0.0.6(468)
 ## Vulnerability details
 
 CH22 V1.0.0.6(468) firmware, we discovered a command injection vulnerablility in `formWriteFacMac` function in the `v2` parameter and the `mac` varable is directly passed to a `doSystemCmd` function, causing an arbitrary command execution. The user-provided `mac` can trigger this security vulnerability.
-![[Pasted image 20240830161624.png]]
+![Vulnerability Function2](20240830161624.png)
+
+
 ## POC
 
 ```python
@@ -21,4 +23,4 @@ data = {"mac": payload}
 response = requests.post(url, data=data)
 print(response.text)```
 
-![[Pasted image 20240830161740.png]]
+![Vulnerability Function2](20240830161740.png)
